@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth</title>
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    
+    <!-- tabs -->
+
+    <div class="tab">
+        <button class="login-tab-button">Login</button>
+        <button class="register-tab-button">Register</button>
+    </div>
+
+    <dialog id="login-tab" open>
+        <form id="login-form">
+            <label><input type="text" name="username" placeholder="Username" required></label>
+            <label><input type="password" name="password" placeholder="Password" required></label>
+            <button type="submit">Login</button>
+        </form>
+    </dialog>
+
+    <dialog id="register-tab">
+        <form id="register-form">
+            <label><input type="text" name="username" placeholder="Username" required></label>
+            <label><input type="password" name="password" placeholder="Password" required></label>
+            <button type="submit">Register</button>
+        </form>
+    </dialog>
+
+    <!-- scripts -->
+
+    <script src="auth.js"></script>
+</body>
+</html>

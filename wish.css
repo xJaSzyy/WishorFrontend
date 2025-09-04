@@ -1,0 +1,60 @@
+/* header */
+
+.filter, .search-input {
+    margin: 1rem 1rem 0;
+}
+
+.filter-status.active {
+    background-color: lightblue;
+}
+
+/* main */
+
+#wish-list {
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 0fr); 
+    gap: 1rem; 
+}
+
+.wish-card {
+    border: 1px solid black;
+    border-radius: 4px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 1rem;
+    gap: 12px;
+
+    width: max-content;
+}
+
+/* popup panels */
+
+.add-button {
+    margin-left: 1rem;
+}
+
+#add-panel, #edit-panel {
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+form {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.close-form-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}

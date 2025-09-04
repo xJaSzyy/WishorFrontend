@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wish</title>
+    <link rel="stylesheet" href="wish.css">
+</head>
+<body>
+
+    <!-- header -->
+
+    <label class="search-label"><input type="text" class="search-input" placeholder="Search..."/></label>
+    
+    <div class="filter">
+        <button class="filter-status active" data-status="all">All</button>
+        <button class="filter-status" data-status="0">New</button>
+        <button class="filter-status" data-status="1">Favorite</button>
+        <button class="filter-status" data-status="2">Done</button>
+    </div>
+    
+    <!-- main -->
+    
+    <div id="wish-list">Loading...</div>
+    
+    <!-- popup panels -->
+    
+    <button class="add-button">Add</button>
+    <dialog id="add-panel">
+        <form method="dialog" class="add-form">
+            <button type="submit" class="close-form-button">×</button>
+            
+            <label>Add</label>
+            <label><input type="text" placeholder="Title"></label>
+            <label><input type="text" placeholder="Description"></label>
+            <label><input type="text" placeholder="Image URL"></label>
+            <label>
+                <select>
+                    <option value="0">New</option>
+                    <option value="1">Favorite</option>
+                    <option value="2">Done</option>
+                </select>
+            </label>
+            <div class="add-panel-buttons">
+                <button type="submit" class="add-form-button">Add</button>
+            </div>
+        </form>
+    </dialog>
+    
+    <dialog id="edit-panel">
+        <form method="dialog" class="edit-form">
+            <button type="submit" class="close-form-button">×</button>
+            
+            <label>Edit</label>
+            <label><input type="text" placeholder="Title"></label>
+            <label><input type="text" placeholder="Description"></label>
+            <label><input type="text" placeholder="Image URL"></label>
+            <label>
+                <select>
+                    <option value="0">New</option>
+                    <option value="1">Favorite</option>
+                    <option value="2">Done</option>
+                </select>
+            </label>
+            <div class="edit-panel-buttons">
+                <button type="submit" class="delete-form-button">Delete</button>
+                <button type="submit" class="edit-form-button">Edit</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- scripts -->
+
+    <script src="wish.js"></script>
+</body>
+</html>
