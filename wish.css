@@ -1,4 +1,22 @@
+:root {
+    --border-radius-default: 4px;
+    --border-default: 1px solid black;
+}
+
 /* header */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: var(--border-default);
+    padding: 1rem;
+    margin: 1rem 1rem 0;
+}
+
+.logout-button:hover {
+    cursor: pointer;
+}
 
 .filter, .search-input {
     margin: 1rem 1rem 0;
@@ -6,6 +24,10 @@
 
 .filter-status.active, .page-button.active {
     background-color: lightblue;
+}
+
+.filter-status:hover {
+    cursor: pointer;
 }
 
 /* main */
@@ -18,8 +40,8 @@
 }
 
 .wish-card {
-    border: 1px solid black;
-    border-radius: 4px;
+    border: var(--border-default);
+    border-radius: var(--border-radius-default);
 
     display: flex;
     flex-direction: column;
@@ -45,15 +67,23 @@
     gap: 0.5rem;
 }
 
+.page-button:hover {
+    cursor: pointer;
+}
+
 /* popup panels */
 
 .add-button {
     margin-left: 1rem;
 }
 
+.add-button:hover {
+    cursor: pointer;
+}
+
 #add-panel, #edit-panel {
-    border: 1px solid black;
-    border-radius: 4px;
+    border: var(--border-default);
+    border-radius: var(--border-radius-default);
 }
 
 form {
@@ -65,8 +95,8 @@ form {
 
 .close-form-button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 12px;
+    right: 12px;
     background: none;
     border: none;
     font-size: 20px;

@@ -1,7 +1,7 @@
 const wishBaseUrl = 'http://localhost:5000/wish';
 
 let page = 1;
-let pageSize = 4;
+let pageSize = 8;
 let search = null;
 let status = null;
 
@@ -36,6 +36,11 @@ function loadWishes() {
         }
     })
         .then(response => {
+            if (response.status === 401) {
+                window.location.href = 'auth.html';  
+                return; 
+            }
+            
             if (!response.ok) {
                 throw new Error('Ошибка загрузки данных');
             }
@@ -249,11 +254,12 @@ addButton.addEventListener('click', () => {
     addPanel.showModal();
 });
 
-/* form buttons */
+/* buttons */
 
 const addFormButton = document.querySelector('.add-form-button');
 const editFormButton = document.querySelector('.edit-form-button');
 const deleteFormButton = document.querySelector('.delete-form-button');
+const logoutButton = document.querySelector('.logout-button');
 
 addFormButton.onclick = function(event) {
     event.preventDefault();
@@ -292,6 +298,14 @@ deleteFormButton.onclick = function(event) {
     
     editPanel.close();
 };
+
+logoutButton.onclick = function(event) {
+    event.preventDefault();
+
+    localStorage.removeItem('token');
+
+    window.location.href = 'auth.html';
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     loadWishes();
