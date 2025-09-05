@@ -31,6 +31,13 @@
     width: max-content;
 }
 
+.wish-image {
+    width: 225px;
+    height: 225px;
+    object-fit: cover;
+    object-position: center;
+}
+
 /* popup panels */
 
 .add-button {
