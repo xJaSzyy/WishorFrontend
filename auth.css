@@ -10,7 +10,16 @@
     border-radius: var(--border-radius-default);
 }
 
-form {
+#login-error-message, #register-error-message {
+    color: red;
+    text-align: center;
+    max-width: 8rem; 
+    word-wrap: break-word; 
+    white-space: normal;
+    margin: 4px auto 0;
+}
+
+#login-form, #register-form {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;

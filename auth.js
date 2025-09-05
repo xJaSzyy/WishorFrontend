@@ -17,7 +17,10 @@ function login(username, password) {
     })
         .then(response => {
             if (!response.ok) {
-                throw new Error('Ошибка авторизации');
+                return response.json().then(err => {
+                    loginErrorMessage.textContent = err.errorMessage || 'Ошибка авторизации';
+                    throw new Error(err.errorMessage || 'Ошибка авторизации');
+                });
             }
             return response.json();
         })
@@ -47,12 +50,15 @@ function register(username, password) {
     })
         .then(response => {
             if (!response.ok) {
-                throw new Error('Ошибка авторизации');
+                return response.json().then(err => {
+                    registerErrorMessage.textContent = err.errorMessage || 'Ошибка авторизации';
+                    throw new Error(err.errorMessage || 'Ошибка авторизации');
+                });
             }
             return response.json();
         })
         .then(result => {
-            console.log('Успех:', result);
+            login(username, password);
         })
         .catch(error => {
             console.error('Ошибка:', error);
@@ -75,6 +81,8 @@ document.getElementById('register-form').onsubmit = function(event) {
     register(username, password);
 };
 
+const loginErrorMessage = document.getElementById('login-error-message')
+const registerErrorMessage = document.getElementById('register-error-message')
 const loginButton = document.querySelector('.login-tab-button');
 const registerButton = document.querySelector('.register-tab-button');
 const loginDialog = document.getElementById('login-tab');

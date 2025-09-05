@@ -1,6 +1,7 @@
 :root {
     --border-radius-default: 4px;
     --border-default: 1px solid black;
+    --unit: 1rem;
 }
 
 /* header */
@@ -10,8 +11,8 @@ header {
     justify-content: space-between;
     align-items: center;
     border: var(--border-default);
-    padding: 1rem;
-    margin: 1rem 1rem 0;
+    padding: var(--unit);
+    margin: var(--unit) var(--unit) 0;
 }
 
 .logout-button:hover {
@@ -19,7 +20,7 @@ header {
 }
 
 .filter, .search-input {
-    margin: 1rem 1rem 0;
+    margin: var(--unit) var(--unit) 0;
 }
 
 .filter-status.active, .page-button.active {
@@ -33,10 +34,10 @@ header {
 /* main */
 
 #wish-list {
-    margin: 1rem;
+    margin: var(--unit);
     display: grid;
     grid-template-columns: repeat(4, 0fr); 
-    gap: 1rem; 
+    gap: var(--unit);
 }
 
 .wish-card {
@@ -47,7 +48,7 @@ header {
     flex-direction: column;
     justify-content: center;
 
-    padding: 1rem;
+    padding: var(--unit);
     gap: 12px;
 
     width: max-content;
@@ -61,8 +62,8 @@ header {
 }
 
 #pagination {
-    margin: 1rem 1rem 0;
-    padding-bottom: 1rem;
+    margin: var(--unit) var(--unit) 0;
+    padding-bottom: var(--unit);
     display: flex;
     gap: 0.5rem;
 }
@@ -74,7 +75,7 @@ header {
 /* popup panels */
 
 .add-button {
-    margin-left: 1rem;
+    margin-left: var(--unit);
 }
 
 .add-button:hover {
