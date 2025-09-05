@@ -1,7 +1,7 @@
 const wishBaseUrl = 'http://localhost:5000/wish';
 
 let page = 1;
-let pageSize = 12;
+let pageSize = 4;
 let search = null;
 let status = null;
 
@@ -43,6 +43,9 @@ function loadWishes() {
         })
         .then(data => {
             container.textContent = '';
+            
+            renderPagination(data.content.maxPage);
+            
             data.content.wishes.forEach(wish => {
                 const wishCard = createWishCard(wish);
                 container.appendChild(wishCard);
@@ -201,6 +204,26 @@ document.querySelector('.search-input').addEventListener('input', function() {
     }, 400);
 });
 
+function renderPagination(maxPage) {
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = ''; 
+    for (let i = 1; i <= maxPage; i++) {
+        const btn = document.createElement('button');
+        btn.classList.add('page-button');
+        
+        if (i === page) {
+            btn.classList.add('active');
+        }
+        
+        btn.textContent = i.toString();
+        btn.onclick = () => {
+            page = i;
+            loadWishes();
+        };
+        pagination.appendChild(btn);
+    }
+}
+
 /* filter */
 
 const buttons = document.querySelectorAll('.filter-status');
@@ -270,4 +293,6 @@ deleteFormButton.onclick = function(event) {
     editPanel.close();
 };
 
-document.addEventListener('DOMContentLoaded', loadWishes());
+document.addEventListener('DOMContentLoaded', () => {
+    loadWishes();
+});
