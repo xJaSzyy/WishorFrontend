@@ -104,3 +104,11 @@ form {
     font-size: 20px;
     cursor: pointer;
 }
+
+/* media */
+
+@media (max-width: 768px) {
+    #wish-list {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
