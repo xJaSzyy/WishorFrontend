@@ -1,4 +1,4 @@
-const wishBaseUrl = 'http://localhost:5000/wish';
+const wishBaseUrl = 'https://wishor.onrender.com/wish';
 
 let page = 1;
 let pageSize = 8;
@@ -48,6 +48,7 @@ function loadWishes() {
             container.textContent = '';
             
             renderPagination(data.content.maxPage);
+            updateCountsByStatus();
             
             data.content.wishes.forEach(wish => {
                 const wishCard = createWishCard(wish);
@@ -146,6 +147,49 @@ function deleteWish() {
         .catch(error => {
             console.error('Ошибка при отправке DELETE запроса:', error);
             throw error;
+        });
+}
+
+function updateCountsByStatus() {
+    const url = new URL(wishBaseUrl + '/countsByStatus');
+
+    const token = localStorage.getItem('token');
+
+    fetch(url.toString(), {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+        .then(response => {
+            if (response.status === 401) {
+                window.location.href = 'auth.html';
+                return;
+            }
+
+            if (!response.ok) {
+                throw new Error('Ошибка загрузки данных');
+            }
+            return response.json();
+        })
+        .then(data => {
+
+            const totalCount = data.content.reduce((sum, obj) => sum + obj.count, 0);
+
+            filterButtons.forEach(button => {
+                const baseText = button.textContent.split(' (')[0];
+
+                if (button.dataset.status === 'all') {
+                    button.textContent = `${baseText} (${totalCount})`;
+                } else {
+                    const countObj = data.content.find(c => c.status.toString() === button.dataset.status);
+                    const count = countObj ? countObj.count : 0;
+                    button.textContent = `${baseText} (${count})`;
+                }
+            });
+            
+        })
+        .catch(error => {
+            throw new Error('Ошибка загрузки данных');
         });
 }
 

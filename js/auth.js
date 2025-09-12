@@ -1,4 +1,4 @@
-const authBaseUrl = 'http://localhost:5000/auth';
+const authBaseUrl = 'https://wishor.onrender.com/auth';
 
 function login(username, password) {
     const data = {

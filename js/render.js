@@ -1,6 +1,15 @@
 function createWishCard(wish) {
+    const rootStyles = getComputedStyle(document.documentElement);
+    let statusColorCssVar = '';
+    switch (wish.status) {
+        case 0: statusColorCssVar = '--color-new'; break;
+        case 1: statusColorCssVar = '--color-favorite'; break;
+        case 2: statusColorCssVar = '--color-done'; break;
+    }
+    
     const card = document.createElement('div');
     card.className = 'wish-card';
+    card.style.border = `2px solid ${rootStyles.getPropertyValue(statusColorCssVar).trim()}`;
 
     const title = document.createElement('label');
     title.className = 'wish-title';
@@ -18,6 +27,7 @@ function createWishCard(wish) {
     const status = document.createElement('label');
     status.className = 'wish-status';
     status.textContent = wish.status === 0 ? 'New' : wish.status === 1 ? 'Favorite' : 'Done';
+    status.style.color = rootStyles.getPropertyValue(statusColorCssVar).trim();
 
     card.appendChild(title);
     card.appendChild(description);

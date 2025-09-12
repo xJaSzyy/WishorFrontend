@@ -1,15 +1,15 @@
-const buttons = document.querySelectorAll('.filter-status');
+const filterButtons = document.querySelectorAll('.filter-status');
 const addButton = document.querySelector('.add-button');
 const logoutButton = document.querySelector('.logout-button');
 
 let debounceTimer;
 
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        buttons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
+filterButtons.forEach(filterButton => {
+    filterButton.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        filterButton.classList.add('active');
 
-        status = button.dataset.status === 'all' ? null : button.dataset.status;
+        status = filterButton.dataset.status === 'all' ? null : filterButton.dataset.status;
 
         page = 1;
         loadWishes();
