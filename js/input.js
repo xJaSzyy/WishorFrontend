@@ -11,6 +11,7 @@ buttons.forEach(button => {
 
         status = button.dataset.status === 'all' ? null : button.dataset.status;
 
+        page = 1;
         loadWishes();
     });
 });
@@ -20,11 +21,19 @@ document.querySelector('.search-input').addEventListener('input', function() {
 
     debounceTimer = setTimeout(() => {
         search = this.value;
+        page = 1;
         loadWishes();
     }, 400);
 });
 
 addButton.addEventListener('click', () => {
+    const form = document.querySelector('.add-form');
+    
+    form.querySelector('input[placeholder="Title"]').value = '';
+    form.querySelector('input[placeholder="Description"]').value = '';
+    form.querySelector('input[placeholder="Image URL"]').value = '';
+    form.querySelector('select').value = '0';
+    
     addPanel.showModal();
 });
 

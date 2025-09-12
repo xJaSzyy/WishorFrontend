@@ -2,6 +2,7 @@
     --border-radius-default: 4px;
     --border-default: 1px solid black;
     --unit: 1rem;
+    --image-size: 225px;
 }
 
 /* header */
@@ -55,8 +56,8 @@ header {
 }
 
 .wish-image {
-    width: 225px;
-    height: 225px;
+    width: var(--image-size);
+    height: var(--image-size);
     object-fit: cover;
     object-position: center;
 }
