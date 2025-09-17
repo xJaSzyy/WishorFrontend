@@ -1,4 +1,9 @@
-const wishBaseUrl = 'http://localhost:5000/wish';
+let wishBaseUrl;
+if (window.location.hostname === 'localhost') {
+    wishBaseUrl = 'http://localhost:5000/wish';
+} else {
+    wishBaseUrl = 'https://wishor.onrender.com/wish';
+}
 
 let page = 1;
 let pageSize = 8;
