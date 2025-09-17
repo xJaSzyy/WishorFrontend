@@ -56,7 +56,7 @@ function loadWishes() {
             });
         })
         .catch(error => {
-            container.textContent = 'Ошибка при загрузке желаний: ' + error.message;
+            showError(container, 'Ошибка при загрузке желаний: ' + error.message);
         });
 }
 
