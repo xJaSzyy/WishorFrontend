@@ -56,8 +56,8 @@ function loadWishes() {
             });
         })
         .catch(async error => {
-            container.textContent = '';
             await loadTranslations(currentLang);
+            container.textContent = '';
             showError(translations['upload_wish_error']);
         });
 }
