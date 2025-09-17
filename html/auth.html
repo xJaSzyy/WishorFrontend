@@ -5,30 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auth</title>
     <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="../css/header.css">
 </head>
 <body>
+
+    <!-- header -->
     
+    <header>
+        <div class="header-left">
+            <label>Wishor</label>
+        </div>
+        <div class="language-switcher" style="margin: 1rem;">
+            <button id="btn-ru">Русский</button>
+            <button id="btn-en" class="active">English</button>
+        </div>
+        <div class="header-right">
+            <button class="logout-button">Logout</button>
+        </div>
+    </header>
+
     <!-- tabs -->
 
     <div class="tab">
-        <button class="login-tab-button">Login</button>
-        <button class="register-tab-button">Register</button>
+        <button class="login-tab-button" translate-id="login">Login</button>
+        <button class="register-tab-button" translate-id="register">Register</button>
     </div>
 
     <dialog id="login-tab" open>
         <form id="login-form">
-            <label><input type="text" autocomplete="username" name="username" placeholder="Username" required></label>
-            <label><input type="password" autocomplete="current-password" name="password" placeholder="Password" required ></label>
-            <button type="submit">Login</button>
+            <label><input type="text" autocomplete="username" name="username" placeholder="Username" required translate-id-placeholder="username"></label>
+            <label><input type="password" autocomplete="current-password" name="password" placeholder="Password" required translate-id-placeholder="password"></label>
+            <button type="submit" translate-id="login">Login</button>
             <div id="login-error-message"></div>
         </form>
     </dialog>
 
     <dialog id="register-tab">
         <form id="register-form">
-            <label><input type="text" autocomplete="username" name="username" placeholder="Username" required></label>
-            <label><input type="password" autocomplete="new-password" name="password" placeholder="Password" required></label>
-            <button type="submit">Register</button>
+            <label><input type="text" autocomplete="username" name="username" placeholder="Username" required translate-id-placeholder="username"></label>
+            <label><input type="password" autocomplete="new-password" name="password" placeholder="Password" required translate-id-placeholder="password"></label>
+            <button type="submit" translate-id="register">Register</button>
             <div id="register-error-message"></div>
         </form>
     </dialog>
@@ -36,5 +52,6 @@
     <!-- scripts -->
 
     <script src="../js/auth.js"></script>
+    <script src="../js/localization.js"></script>
 </body>
 </html>

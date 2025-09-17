@@ -1,6 +1,8 @@
 const errorBox = document.getElementById('errorBox');
 const errorText = errorBox.querySelector('.error-text');
 
+let currentLang = localStorage.getItem('lang') || 'en';
+
 function createWishCard(wish) {
     const rootStyles = getComputedStyle(document.documentElement);
     let statusColorCssVar = '';
