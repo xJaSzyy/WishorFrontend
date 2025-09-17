@@ -17,5 +17,6 @@
   "title" : "Заголовок",
   "description" : "Описание",
   "image" : "Ссылка на картинку",
-  "card_description": "Нет описания"
+  "card_description": "Нет описания",
+  "upload_wish_error": "Ошибка при загрузке желаний"
 }

@@ -55,9 +55,10 @@ function loadWishes() {
                 container.appendChild(wishCard);
             });
         })
-        .catch(error => {
+        .catch(async error => {
             container.textContent = '';
-            showError('Error when uploading wishes');
+            await loadTranslations(currentLang);
+            showError(translations['upload_wish_error']);
         });
 }
 
