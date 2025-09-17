@@ -1,4 +1,4 @@
-const wishBaseUrl = 'https://wishor.onrender.com/wish';
+const wishBaseUrl = 'http://localhost:5000/wish';
 
 let page = 1;
 let pageSize = 8;

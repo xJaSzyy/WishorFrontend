@@ -1,27 +1,139 @@
-.tab {
+:root {
+    --color-primary: #3498db;   
+    --color-secondary: #e67e22; 
+    --color-error: #e74c3c;     
+    --bg-light: #f5f8fa;
+    --bg-white: #fff;
+    --border-light: #ccc;
+    --text-dark: #2c3e50;
+    --text-muted: #7f8c8d;
+    --font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-light);
+    font-family: var(--font-family);
+    color: var(--text-dark);
     display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 16px;
-}
-
-#login-tab, #register-tab {
-    border: var(--border-default);
-    border-radius: var(--border-radius-default);
-}
-
-#login-error-message, #register-error-message {
-    color: red;
-    text-align: center;
-    max-width: 8rem; 
-    word-wrap: break-word; 
-    white-space: normal;
-    margin: 4px auto 0;
-}
-
-#login-form, #register-form {
-    display: inline-flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 12px;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+}
+
+.tab {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    gap: 1.5rem;
+}
+
+
+.tab button {
+    background: transparent;
+    border: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    border-radius: 40px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 -2px 0 transparent;
+    user-select: none;
+}
+
+.tab button:hover {
+    color: var(--color-primary);
+}
+
+.tab button.active {
+    color: var(--bg-white);
+    background-color: var(--color-primary);
+    box-shadow: inset 0 -2px 0 var(--color-primary);
+    cursor: default;
+}
+
+dialog {
+    border: none;
+    border-radius: 12px;
+    background-color: var(--bg-white);
+    box-shadow: 0 15px 35px var(--shadow-light);
+    padding: 2rem 2.5rem;
+    width: 320px;
+    max-width: 90vw;
+    margin-top: 1.5rem;
+    z-index: 5;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+label {
+    width: 100%;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1.8px solid var(--border-light);
+    border-radius: 12px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 8px var(--color-primary);
+}
+
+button[type="submit"] {
+    background-color: var(--color-primary);
+    color: var(--bg-white);
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0.75rem 0;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+button[type="submit"]:hover {
+    background-color: #2874b5;
+}
+
+#login-error-message,
+#register-error-message {
+    color: var(--color-error);
+    font-size: 0.9rem;
+    min-height: 1.2rem;
+    margin-top: -0.8rem;
+    user-select: none;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+dialog[open] {
+    animation: fadeIn 0.25s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px);}
+    to { opacity: 1; transform: translateY(0);}
 }

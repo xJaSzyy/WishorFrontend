@@ -1,4 +1,4 @@
-const authBaseUrl = 'https://wishor.onrender.com/auth';
+const authBaseUrl = 'http://localhost:5000/auth';
 
 function login(username, password) {
     const data = {
@@ -83,17 +83,29 @@ document.getElementById('register-form').onsubmit = function(event) {
 
 const loginErrorMessage = document.getElementById('login-error-message')
 const registerErrorMessage = document.getElementById('register-error-message')
-const loginButton = document.querySelector('.login-tab-button');
-const registerButton = document.querySelector('.register-tab-button');
 const loginDialog = document.getElementById('login-tab');
 const registerDialog = document.getElementById('register-tab');
+const loginTabButton = document.querySelector('.login-tab-button');
+const registerTabButton = document.querySelector('.register-tab-button');
 
-loginButton.addEventListener('click', () => {
-    registerDialog.close();   
-    loginDialog.show();  
+function setActiveTab(buttonToActivate) {
+    loginTabButton.classList.remove('active');
+    registerTabButton.classList.remove('active');
+    buttonToActivate.classList.add('active');
+}
+
+loginTabButton.addEventListener('click', () => {
+    registerDialog.close();
+    loginDialog.show();
+    setActiveTab(loginTabButton);
 });
 
-registerButton.addEventListener('click', () => {
-    loginDialog.close();      
-    registerDialog.show(); 
+registerTabButton.addEventListener('click', () => {
+    loginDialog.close();
+    registerDialog.show();
+    setActiveTab(registerTabButton);
 });
+
+// Изначально активна вкладка Login
+setActiveTab(loginTabButton);
+
