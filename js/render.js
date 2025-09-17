@@ -86,11 +86,11 @@ function showError(container, message) {
     errorBox.style.display = 'flex';
     errorBox.style.flexDirection = 'column';
     errorBox.style.alignItems = 'center';
-    errorBox.style.gap = '0.8rem';
+    errorBox.style.gap = '1rem';
     errorBox.style.fontWeight = '600';
     errorBox.style.userSelect = 'none';
 
-    errorBox.style.margin = '20px auto';  
+    errorBox.style.margin = 'auto';  
 
     const icon = document.createElement('span');
     icon.textContent = '⚠️';
@@ -101,7 +101,7 @@ function showError(container, message) {
     text.style.textAlign = 'center';
 
     const retryBtn = document.createElement('button');
-    retryBtn.textContent = 'Повторить';
+    retryBtn.textContent = 'Retry';
     retryBtn.style.backgroundColor = '#e74c3c';
     retryBtn.style.color = '#fff';
     retryBtn.style.border = 'none';

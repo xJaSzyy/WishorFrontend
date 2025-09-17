@@ -56,7 +56,7 @@ function loadWishes() {
             });
         })
         .catch(error => {
-            showError(container, 'Ошибка при загрузке желаний: ' + error.message);
+            showError(container, 'Error when uploading wishes');
         });
 }
 
