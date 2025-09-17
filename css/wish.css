@@ -319,3 +319,51 @@ button:focus {
     background-color: var(--color-new);
     pointer-events: none;
 }
+
+.error-box {
+    border: 2px solid #e74c3c;
+    background-color: #fdecea;
+    color: #c0392b;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+    user-select: none;
+    width: fit-content;
+    margin: auto;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.hidden {
+    display: none;
+}
+
+.error-icon {
+    font-size: 2rem;
+}
+
+.error-text {
+    text-align: center;
+}
+
+.retry-button {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.4rem 1.2rem;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+.retry-button:hover {
+    background-color: #c0392b;
+}

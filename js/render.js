@@ -1,3 +1,6 @@
+const errorBox = document.getElementById('errorBox');
+const errorText = errorBox.querySelector('.error-text');
+
 function createWishCard(wish) {
     const rootStyles = getComputedStyle(document.documentElement);
     let statusColorCssVar = '';
@@ -74,56 +77,7 @@ function renderPagination(maxPage) {
     }
 }
 
-function showError(container, message) {
-    container.innerHTML = ''; 
-
-    const errorBox = document.createElement('div');
-    errorBox.style.border = '2px solid #e74c3c';
-    errorBox.style.backgroundColor = '#fdecea';
-    errorBox.style.color = '#c0392b';
-    errorBox.style.padding = '1rem 1.2rem';
-    errorBox.style.borderRadius = '12px';
-    errorBox.style.display = 'flex';
-    errorBox.style.flexDirection = 'column';
-    errorBox.style.alignItems = 'center';
-    errorBox.style.gap = '1rem';
-    errorBox.style.fontWeight = '600';
-    errorBox.style.userSelect = 'none';
-
-    errorBox.style.margin = 'auto';  
-
-    const icon = document.createElement('span');
-    icon.textContent = '⚠️';
-    icon.style.fontSize = '2rem';
-
-    const text = document.createElement('div');
-    text.textContent = message;
-    text.style.textAlign = 'center';
-
-    const retryBtn = document.createElement('button');
-    retryBtn.textContent = 'Retry';
-    retryBtn.style.backgroundColor = '#e74c3c';
-    retryBtn.style.color = '#fff';
-    retryBtn.style.border = 'none';
-    retryBtn.style.borderRadius = '8px';
-    retryBtn.style.padding = '0.4rem 1.2rem';
-    retryBtn.style.cursor = 'pointer';
-    retryBtn.style.fontWeight = '700';
-    retryBtn.style.transition = 'background-color 0.3s ease';
-
-    retryBtn.addEventListener('mouseenter', () => {
-        retryBtn.style.backgroundColor = '#c0392b';
-    });
-    retryBtn.addEventListener('mouseleave', () => {
-        retryBtn.style.backgroundColor = '#e74c3c';
-    });
-    retryBtn.onclick = () => {
-        loadWishes();
-    };
-
-    errorBox.appendChild(icon);
-    errorBox.appendChild(text);
-    errorBox.appendChild(retryBtn);
-
-    container.appendChild(errorBox);
+function showError(message) {
+    errorText.textContent = message;
+    errorBox.classList.remove('hidden');
 }

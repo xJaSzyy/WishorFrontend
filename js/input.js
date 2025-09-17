@@ -1,6 +1,7 @@
 const filterButtons = document.querySelectorAll('.filter-status');
 const addButton = document.querySelector('.add-button');
 const logoutButton = document.querySelector('.logout-button');
+const retryBtn = document.getElementById('retryBtn');
 
 let debounceTimer;
 
@@ -44,3 +45,8 @@ logoutButton.onclick = function(event) {
 
     window.location.href = 'auth.html';
 }
+
+retryBtn.onclick = () => {
+    errorBox.classList.add('hidden');
+    loadWishes();
+};

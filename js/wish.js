@@ -56,7 +56,8 @@ function loadWishes() {
             });
         })
         .catch(error => {
-            showError(container, 'Error when uploading wishes');
+            container.textContent = '';
+            showError('Error when uploading wishes');
         });
 }
 
