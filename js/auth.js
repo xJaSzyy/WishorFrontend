@@ -1,8 +1,9 @@
 let authBaseUrl;
-if (window.location.hostname === 'localhost') {
-    authBaseUrl = 'http://localhost:5000/auth';
-} else {
+if (window.location.hostname.includes('github.io')) {
     authBaseUrl = 'https://wishor.onrender.com/auth';
+}
+else {
+    authBaseUrl = 'http://localhost:5000/auth';
 }
 
 function login(username, password) {
