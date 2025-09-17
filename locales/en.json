@@ -2,5 +2,20 @@
   "login": "Login",
   "register": "Register",
   "username": "Username",
-  "password": "Password"
+  "password": "Password",
+  "logout" : "Logout",
+  "search" : "Search...",
+  "all" : "All",
+  "new" : "New",
+  "favorite" : "Favorite",
+  "done" : "Done",
+  "loading" : "Loading...",
+  "add" : "Add",
+  "delete" : "Delete",
+  "edit" : "Edit",
+  "retry" : "Retry",
+  "title" : "Title",
+  "description" : "Description",
+  "image" : "Image URL",
+  "card_description": "No description"
 }

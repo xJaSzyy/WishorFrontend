@@ -30,9 +30,9 @@ document.querySelector('.search-input').addEventListener('input', function() {
 addButton.addEventListener('click', () => {
     const form = document.querySelector('.add-form');
     
-    form.querySelector('input[placeholder="Title"]').value = '';
-    form.querySelector('input[placeholder="Description"]').value = '';
-    form.querySelector('input[placeholder="Image URL"]').value = '';
+    form.querySelector('input[translate-id-placeholder="title"]').value = '';
+    form.querySelector('input[translate-id-placeholder="description"]').value = '';
+    form.querySelector('input[translate-id-placeholder="image"]').value = '';
     form.querySelector('select').value = '0';
     
     addPanel.showModal();

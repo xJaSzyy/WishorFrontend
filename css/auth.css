@@ -41,28 +41,6 @@ header {
     user-select: none;
 }
 
-.language-switcher {
-    display: flex;
-    gap: 0.75rem;
-}
-
-.language-switcher button {
-    background-color: transparent;
-    border: 2px solid var(--color-new);
-    color: var(--color-new);
-    padding: 0.3rem 0.75rem;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.language-switcher button.active,
-.language-switcher button:hover {
-    background-color: var(--color-new);
-    color: var(--bg-white);
-}
-
 .header-right .logout-button {
     background-color: transparent;
     border: 2px solid var(--color-new);

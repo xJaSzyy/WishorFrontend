@@ -1,16 +1,24 @@
 const buttonRu = document.getElementById('btn-ru');
 const buttonEn = document.getElementById('btn-en');
 
+let translations = null;
+
 buttonRu.onclick = async () => {
     await switchLanguage('ru');
     buttonEn.classList.remove('active');
     buttonRu.classList.add('active');
-    
+    if (document.getElementById('wish-list')) {
+        loadWishes();
+    }
 };
+
 buttonEn.onclick = async () => {
     await switchLanguage('en')
     buttonRu.classList.remove('active');
     buttonEn.classList.add('active');
+    if (document.getElementById('wish-list')) {
+        loadWishes();
+    }
 };
 
 function applyLocalization(translations) {
@@ -37,11 +45,22 @@ async function loadTranslations(lang) {
 }
 
 async function switchLanguage(lang) {
-    console.log(lang);
-    const translations = await loadTranslations(lang);
+    translations = await loadTranslations(lang);
     if (translations) {
         applyLocalization(translations);
         localStorage.setItem('lang', lang);
         currentLang = lang;
     }
 }
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const lang = localStorage.getItem('lang');
+    if (lang != null) {
+        buttonEn.classList.remove('active');
+        buttonRu.classList.remove('active');
+        
+        const button = lang === 'en' ? buttonEn : buttonRu;
+        button.classList.add('active');
+        await switchLanguage(lang);
+    }
+});
