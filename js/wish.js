@@ -1,4 +1,4 @@
-const wishBaseUrl = 'https://wishor.onrender.com/wish';
+const wishBaseUrl = 'http://localhost:5000/wish';
 
 let page = 1;
 let pageSize = 8;
@@ -55,8 +55,10 @@ function loadWishes() {
                 container.appendChild(wishCard);
             });
         })
-        .catch(error => {
-            container.textContent = 'Ошибка при загрузке желаний: ' + error.message;
+        .catch(async error => {
+            await loadTranslations(currentLang);
+            container.textContent = '';
+            showError(translations['upload_wish_error']);
         });
 }
 

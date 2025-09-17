@@ -1,3 +1,8 @@
+const errorBox = document.getElementById('errorBox');
+const errorText = errorBox.querySelector('.error-text');
+
+let currentLang = localStorage.getItem('lang') || 'en';
+
 function createWishCard(wish) {
     const rootStyles = getComputedStyle(document.documentElement);
     let statusColorCssVar = '';
@@ -6,7 +11,7 @@ function createWishCard(wish) {
         case 1: statusColorCssVar = '--color-favorite'; break;
         case 2: statusColorCssVar = '--color-done'; break;
     }
-    
+
     const card = document.createElement('div');
     card.className = 'wish-card';
     card.style.border = `2px solid ${rootStyles.getPropertyValue(statusColorCssVar).trim()}`;
@@ -17,8 +22,8 @@ function createWishCard(wish) {
 
     const description = document.createElement('label');
     description.className = 'wish-description';
-    description.textContent = (wish.description === null || wish.description.trim() === "") ? "No description" : wish.description;
-
+    description.textContent = (wish.description === null || wish.description.trim() === "") ? translations['card_description'] : wish.description;
+    
     const image = document.createElement('img');
     image.className = 'wish-image';
     image.src = wish.image
@@ -26,7 +31,7 @@ function createWishCard(wish) {
 
     const status = document.createElement('label');
     status.className = 'wish-status';
-    status.textContent = wish.status === 0 ? 'New' : wish.status === 1 ? 'Favorite' : 'Done';
+    status.textContent = wish.status === 0 ? translations['new'] : wish.status === 1 ? translations['favorite'] : translations['done'];
     status.style.color = rootStyles.getPropertyValue(statusColorCssVar).trim();
 
     card.appendChild(title);
@@ -44,9 +49,9 @@ function createWishCard(wish) {
 function loadEditPanel(wish) {
     const form = document.querySelector('.edit-form');
 
-    form.querySelector('input[placeholder="Title"]').value = wish.title;
-    form.querySelector('input[placeholder="Description"]').value = wish.description;
-    form.querySelector('input[placeholder="Image URL"]').value = wish.image;
+    form.querySelector('input[translate-id-placeholder="title"]').value = wish.title;
+    form.querySelector('input[translate-id-placeholder="description"]').value = wish.description;
+    form.querySelector('input[translate-id-placeholder="image"]').value = wish.image;
     form.querySelector('select').value = wish.status;
 
     lastEditWish = wish;
@@ -72,4 +77,9 @@ function renderPagination(maxPage) {
         };
         pagination.appendChild(btn);
     }
+}
+
+function showError(message) {
+    errorText.textContent = message;
+    errorBox.classList.remove('hidden');
 }

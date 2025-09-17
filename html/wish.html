@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wish</title>
     <link rel="stylesheet" href="../css/wish.css">
+    <link rel="stylesheet" href="../css/header.css">
 </head>
 <body>
 
@@ -14,46 +15,50 @@
         <div class="header-left">
             <label>Wishor</label>
         </div>
+        <div class="language-switcher" style="margin: 1rem;">
+            <button id="btn-ru">Русский</button>
+            <button id="btn-en">English</button>
+        </div>
         <div class="header-right">
-            <button class="logout-button">Logout</button>
+            <button class="logout-button" translate-id="logout">Logout</button>
         </div>
     </header>
     
-    <label class="search-label"><input type="text" class="search-input" placeholder="Search..."/></label>
+    <label class="search-label"><input type="text" class="search-input" placeholder="Search..." translate-id-placeholder="search"/></label>
     
     <div class="filter">
-        <button class="filter-status active" data-status="all">All</button>
-        <button class="filter-status" data-status="0">New</button>
-        <button class="filter-status" data-status="1">Favorite</button>
-        <button class="filter-status" data-status="2">Done</button>
+        <button class="filter-status active" data-status="all" translate-id="all">All</button>
+        <button class="filter-status" data-status="0" translate-id="new">New</button>
+        <button class="filter-status" data-status="1" translate-id="favorite">Favorite</button>
+        <button class="filter-status" data-status="2" translate-id="done">Done</button>
     </div>
     
     <!-- main -->
     
-    <div id="wish-list">Loading...</div>
+    <div id="wish-list" translate-id="loading">Loading...</div>
 
     <div id="pagination"></div>
 
     <!-- popup panels -->
     
-    <button class="add-button">Add</button>
+    <button class="add-button">+</button>
     <dialog id="add-panel">
         <form method="dialog" class="add-form">
             <button type="submit" class="close-form-button">×</button>
             
-            <label>Add</label>
-            <label><input type="text" placeholder="Title"></label>
-            <label><input type="text" placeholder="Description"></label>
-            <label><input type="text" placeholder="Image URL"></label>
+            <label translate-id="add">Add</label>
+            <label><input type="text" placeholder="Title" translate-id-placeholder="title"></label>
+            <label><input type="text" placeholder="Description" translate-id-placeholder="description"></label>
+            <label><input type="text" placeholder="Image URL" translate-id-placeholder="image"></label>
             <label>
                 <select>
-                    <option value="0">New</option>
-                    <option value="1">Favorite</option>
-                    <option value="2">Done</option>
+                    <option value="0" translate-id="new">New</option>
+                    <option value="1" translate-id="favorite">Favorite</option>
+                    <option value="2" translate-id="done">Done</option>
                 </select>
             </label>
             <div class="add-panel-buttons">
-                <button type="submit" class="add-form-button">Add</button>
+                <button type="submit" class="add-form-button" translate-id="add">Add</button>
             </div>
         </form>
     </dialog>
@@ -62,23 +67,29 @@
         <form method="dialog" class="edit-form">
             <button type="submit" class="close-form-button">×</button>
             
-            <label>Edit</label>
-            <label><input type="text" placeholder="Title"></label>
-            <label><input type="text" placeholder="Description"></label>
-            <label><input type="text" placeholder="Image URL"></label>
+            <label translate-id="edit">Edit</label>
+            <label><input type="text" placeholder="Title" translate-id-placeholder="title"></label>
+            <label><input type="text" placeholder="Description" translate-id-placeholder="description"></label>
+            <label><input type="text" placeholder="Image URL" translate-id-placeholder="image"></label>
             <label>
                 <select>
-                    <option value="0">New</option>
-                    <option value="1">Favorite</option>
-                    <option value="2">Done</option>
+                    <option value="0" translate-id="new">New</option>
+                    <option value="1" translate-id="favorite">Favorite</option>
+                    <option value="2" translate-id="done">Done</option>
                 </select>
             </label>
             <div class="edit-panel-buttons">
-                <button type="submit" class="delete-form-button">Delete</button>
-                <button type="submit" class="edit-form-button">Edit</button>
+                <button type="submit" class="delete-form-button" translate-id="delete">Delete</button>
+                <button type="submit" class="edit-form-button" translate-id="edit">Edit</button>
             </div>
         </form>
     </dialog>
+
+    <div id="errorBox" class="error-box hidden">
+        <span class="error-icon">⚠️</span>
+        <div class="error-text"></div>
+        <button id="retryBtn" class="retry-button" translate-id="retry">Retry</button>
+    </div>
 
     <!-- scripts -->
 
@@ -86,5 +97,6 @@
     <script src="../js/form.js"></script>
     <script src="../js/input.js"></script>
     <script src="../js/render.js"></script>
+    <script src="../js/localization.js"></script>
 </body>
 </html>

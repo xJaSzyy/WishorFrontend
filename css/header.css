@@ -1,0 +1,56 @@
+header {
+    background-color: var(--bg-white);
+    box-shadow: 0 2px 8px var(--shadow-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-left label {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-new);
+    user-select: none;
+}
+
+.header-right .logout-button {
+    background-color: transparent;
+    border: 2px solid var(--color-new);
+    color: var(--color-new);
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header-right .logout-button:hover {
+    background-color: var(--color-new);
+    color: var(--bg-white);
+}
+
+.language-switcher {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.language-switcher button {
+    background-color: transparent;
+    border: 2px solid var(--color-new);
+    color: var(--color-new);
+    padding: 0.3rem 0.75rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.language-switcher button.active,
+.language-switcher button:hover {
+    background-color: var(--color-new);
+    color: var(--bg-white);
+}
