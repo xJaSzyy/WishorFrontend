@@ -11,9 +11,9 @@ addFormButton.onclick = function(event) {
 
     const form = document.querySelector('.add-form');
 
-    const title = form.querySelector('input[placeholder="Title"]').value;
-    const description = form.querySelector('input[placeholder="Description"]').value;
-    const image = form.querySelector('input[placeholder="Image URL"]').value;
+    const title = form.querySelector('input[translate-id-placeholder="title"]').value;
+    const description = form.querySelector('input[translate-id-placeholder="description"]').value;
+    const image = form.querySelector('input[translate-id-placeholder="image"]').value;
     const status = form.querySelector('select').value;
 
     addWish(title, description, image, status);
@@ -26,9 +26,9 @@ editFormButton.onclick = function(event) {
 
     const form = document.querySelector('.edit-form');
 
-    const title = form.querySelector('input[placeholder="Title"]').value;
-    const description = form.querySelector('input[placeholder="Description"]').value;
-    const image = form.querySelector('input[placeholder="Image URL"]').value;
+    const title = form.querySelector('input[translate-id-placeholder="title"]').value;
+    const description = form.querySelector('input[translate-id-placeholder="description"]').value;
+    const image = form.querySelector('input[translate-id-placeholder="image URL"]').value;
     const status = form.querySelector('select').value;
 
     editWish(title, description, image, status);
