@@ -24,6 +24,27 @@
         </div>
     </header>
 
+    <!-- main -->
+
+    <div id="status-distribution-chart-legend" class="legend">
+        <div class="legend-item">
+            <span class="legend-color" style="background-color: #3498db;"></span>
+            <span class="legend-label" style="color: #3498db;" translate-id="new">New</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-color" style="background-color: #e67e22;"></span>
+            <span class="legend-label" style="color: #e67e22" translate-id="favorite">Favorite</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-color" style="background-color: #2ecc71;"></span>
+            <span class="legend-label" style="color: #2ecc71" translate-id="done">Done</span>
+        </div>
+    </div>
+    <canvas id="status-distribution-chart" width="320" height="320"></canvas>
+    
+    <!-- scripts -->
+
+    <script src="../js/wish.js"></script>
     <script src="../js/graph.js"></script>
     <script src="../js/localization.js"></script>
 </body>

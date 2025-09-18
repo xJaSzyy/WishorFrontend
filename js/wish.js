@@ -51,12 +51,12 @@ function loadWishes() {
             }
             return response.json();
         })
-        .then(data => {
+        .then(async data => {
             container.textContent = '';
-            
+
             renderPagination(data.content.maxPage);
-            updateCountsByStatus();
-            
+            await updateCountsByStatus();
+
             data.content.wishes.forEach(wish => {
                 const wishCard = createWishCard(wish);
                 container.appendChild(wishCard);
@@ -159,49 +159,55 @@ function deleteWish() {
         });
 }
 
-function updateCountsByStatus() {
+async function getCountsByStatus() {
     const url = new URL(wishBaseUrl + '/countsByStatus');
-
     const token = localStorage.getItem('token');
 
-    fetch(url.toString(), {
+    const response = await fetch(url.toString(), {
         headers: {
             'Authorization': `Bearer ${token}`
         }
-    })
-        .then(response => {
-            if (response.status === 401) {
-                window.location.href = 'auth.html';
-                return;
+    });
+
+    if (response.status === 401) {
+        window.location.href = 'auth.html';
+        return null;
+    }
+
+    if (!response.ok) {
+        throw new Error('Ошибка загрузки данных');
+    }
+
+    const data = await response.json();
+    return data.content;
+}
+
+async function updateCountsByStatus() {
+    try {
+        const data = await getCountsByStatus();
+
+        if (!data) return;
+
+        const totalCount = data.reduce((sum, obj) => sum + obj.count, 0);
+
+        filterButtons.forEach(button => {
+            const baseText = button.textContent.split(' (')[0];
+
+            if (button.dataset.status === 'all') {
+                button.textContent = `${baseText} (${totalCount})`;
+            } else {
+                const countObj = data.find(c => c.status.toString() === button.dataset.status);
+                const count = countObj ? countObj.count : 0;
+                button.textContent = `${baseText} (${count})`;
             }
-
-            if (!response.ok) {
-                throw new Error('Ошибка загрузки данных');
-            }
-            return response.json();
-        })
-        .then(data => {
-
-            const totalCount = data.content.reduce((sum, obj) => sum + obj.count, 0);
-
-            filterButtons.forEach(button => {
-                const baseText = button.textContent.split(' (')[0];
-
-                if (button.dataset.status === 'all') {
-                    button.textContent = `${baseText} (${totalCount})`;
-                } else {
-                    const countObj = data.content.find(c => c.status.toString() === button.dataset.status);
-                    const count = countObj ? countObj.count : 0;
-                    button.textContent = `${baseText} (${count})`;
-                }
-            });
-            
-        })
-        .catch(error => {
-            throw new Error('Ошибка загрузки данных');
         });
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    loadWishes();
+    if (window.location.pathname.endsWith('wish.html')) {
+        loadWishes();
+    }
 });
