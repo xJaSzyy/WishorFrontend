@@ -112,6 +112,5 @@ registerTabButton.addEventListener('click', () => {
     setActiveTab(registerTabButton);
 });
 
-// Изначально активна вкладка Login
 setActiveTab(loginTabButton);
 
