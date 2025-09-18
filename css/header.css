@@ -1,3 +1,9 @@
+:root {
+    --color-new: #3498db;
+    --bg-white: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+}
+
 header {
     background-color: var(--bg-white);
     box-shadow: 0 2px 8px var(--shadow-light);
@@ -17,7 +23,7 @@ header {
     user-select: none;
 }
 
-.header-right .logout-button {
+.header-right button {
     background-color: transparent;
     border: 2px solid var(--color-new);
     color: var(--color-new);
@@ -28,7 +34,7 @@ header {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.header-right .logout-button:hover {
+.header-right button:hover {
     background-color: var(--color-new);
     color: var(--bg-white);
 }

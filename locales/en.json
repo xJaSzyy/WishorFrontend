@@ -18,5 +18,7 @@
   "description" : "Description",
   "image" : "Image URL",
   "card_description": "No description",
-  "upload_wish_error": "Error when uploading wishes"
+  "upload_wish_error": "Error when uploading wishes",
+  "wishes": "Wishes",
+  "graph": "Graph"
 }

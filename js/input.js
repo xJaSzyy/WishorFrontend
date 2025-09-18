@@ -1,6 +1,7 @@
 const filterButtons = document.querySelectorAll('.filter-status');
 const addButton = document.querySelector('.add-button');
 const logoutButton = document.querySelector('.logout-button');
+const graphButton = document.querySelector('.graph-button');
 const retryBtn = document.getElementById('retryBtn');
 
 let debounceTimer;
@@ -50,6 +51,12 @@ logoutButton.onclick = function(event) {
     localStorage.removeItem('token');
 
     window.location.href = 'auth.html';
+}
+
+graphButton.onclick = function(event) {
+    event.preventDefault();
+
+    window.location.href = 'graph.html';
 }
 
 retryBtn.onclick = () => {
