@@ -16,7 +16,7 @@ addFormButton.onclick = function(event) {
     const image = form.querySelector('input[translate-id-placeholder="image"]').value;
     const status = form.querySelector('select').value;
 
-    addWish(title, description, image, status);
+    addWish(title, description, image, status).then(w => console.log(`Wish with id: ${w.content.id} successfully added`));
 
     addPanel.close();
 }
@@ -31,7 +31,7 @@ editFormButton.onclick = function(event) {
     const image = form.querySelector('input[translate-id-placeholder="image"]').value;
     const status = form.querySelector('select').value;
 
-    editWish(title, description, image, status);
+    editWish(title, description, image, status).then(w => console.log(`Wish with id: ${w.content.id} successfully edited`));
 
     editPanel.close();
 };
@@ -39,7 +39,7 @@ editFormButton.onclick = function(event) {
 deleteFormButton.onclick = function(event) {
     event.preventDefault();
 
-    deleteWish();
+    deleteWish().then(w => console.log(`Wish with id: ${w.content.id} successfully deleted`));
 
     editPanel.close();
 };
