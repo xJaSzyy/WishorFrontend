@@ -28,7 +28,7 @@ editFormButton.onclick = function(event) {
 
     const title = form.querySelector('input[translate-id-placeholder="title"]').value;
     const description = form.querySelector('input[translate-id-placeholder="description"]').value;
-    const image = form.querySelector('input[translate-id-placeholder="image URL"]').value;
+    const image = form.querySelector('input[translate-id-placeholder="image"]').value;
     const status = form.querySelector('select').value;
 
     editWish(title, description, image, status);
