@@ -7,10 +7,16 @@ let debounceTimer;
 
 filterButtons.forEach(filterButton => {
     filterButton.addEventListener('click', () => {
+        const newStatus = filterButton.dataset.status === 'all' ? null : filterButton.dataset.status;
+
+        if (status === newStatus) {
+            return;
+        }
+        
         filterButtons.forEach(btn => btn.classList.remove('active'));
         filterButton.classList.add('active');
 
-        status = filterButton.dataset.status === 'all' ? null : filterButton.dataset.status;
+        status = newStatus;
 
         page = 1;
         loadWishes();

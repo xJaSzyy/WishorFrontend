@@ -4,6 +4,10 @@ const buttonEn = document.getElementById('btn-en');
 let translations = null;
 
 buttonRu.onclick = async () => {
+    if (currentLang === 'ru') {
+        return;
+    }
+    
     await switchLanguage('ru');
     buttonEn.classList.remove('active');
     buttonRu.classList.add('active');
@@ -13,6 +17,10 @@ buttonRu.onclick = async () => {
 };
 
 buttonEn.onclick = async () => {
+    if (currentLang === 'en') {
+        return;
+    }
+    
     await switchLanguage('en')
     buttonRu.classList.remove('active');
     buttonEn.classList.add('active');
