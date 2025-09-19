@@ -1,9 +1,8 @@
 const errorBox = document.getElementById('errorBox');
-const errorText = errorBox.querySelector('.error-text');
 
 let currentLang = localStorage.getItem('lang') || 'en';
 
-function createWishCard(wish) {
+function createWishCard(wish, clickable = true) {
     const rootStyles = getComputedStyle(document.documentElement);
     let statusColorCssVar = '';
     switch (wish.status) {
@@ -39,9 +38,11 @@ function createWishCard(wish) {
     card.appendChild(image);
     card.appendChild(status);
 
-    card.addEventListener('click', () => {
-        loadEditPanel(wish);
-    });
+    if (clickable) {
+        card.addEventListener('click', () => {
+            loadEditPanel(wish);
+        });
+    }
 
     return card;
 }
@@ -80,6 +81,7 @@ function renderPagination(maxPage) {
 }
 
 function showError(message) {
+    const errorText = errorBox.querySelector('.error-text');
     errorText.textContent = message;
     errorBox.classList.remove('hidden');
 }

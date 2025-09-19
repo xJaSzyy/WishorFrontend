@@ -69,6 +69,36 @@ function loadWishes() {
         });
 }
 
+function loadWishesByAuthor() {
+    const container = document.getElementById('wish-list');
+    container.textContent = 'Загрузка...';
+
+    const queryParams = new URLSearchParams(window.location.search);
+    const author = queryParams.get('author');
+    
+    const url = new URL(wishBaseUrl);
+
+    fetch(url.toString() + `/${author}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Ошибка загрузки данных');
+            }
+            return response.json();
+        })
+        .then(async data => {
+            container.textContent = '';
+
+            data.content.wishes.forEach(wish => {
+                const wishCard = createWishCard(wish, false);
+                container.appendChild(wishCard);
+            });
+        })
+        .catch(async error => {
+            await loadTranslations(currentLang);
+            container.textContent = '';
+        });
+}
+
 function addWish(title, description, image, status) {
     const body = {
         title: title,

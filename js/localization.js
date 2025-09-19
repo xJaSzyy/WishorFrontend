@@ -12,7 +12,11 @@ buttonRu.onclick = async () => {
     buttonEn.classList.remove('active');
     buttonRu.classList.add('active');
     if (document.getElementById('wish-list')) {
-        loadWishes();
+        if (window.location.pathname.endsWith('share.html')) {
+            loadWishesByAuthor();
+        } else {
+            loadWishes();
+        }
     }
 };
 
@@ -25,7 +29,11 @@ buttonEn.onclick = async () => {
     buttonRu.classList.remove('active');
     buttonEn.classList.add('active');
     if (document.getElementById('wish-list')) {
-        loadWishes();
+        if (window.location.pathname.endsWith('share.html')) {
+            loadWishesByAuthor();
+        } else {
+            loadWishes();
+        }
     }
 };
 
