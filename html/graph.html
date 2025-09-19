@@ -42,11 +42,17 @@
     </div>
     <canvas id="status-distribution-chart" width="320" height="320"></canvas>
 
-    <canvas id="wish-count-dynamics-chart" width="600" height="400"></canvas>
+    <div id="wish-count-dynamics-chart"></div>
+    <label>
+        <select id="status-select">
+            <option value="0" translate-id="new">New</option>
+            <option value="1" translate-id="favorite">Favorite</option>
+            <option value="2" translate-id="done">Done</option>
+        </select>
+    </label>
     
     <!-- scripts -->
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/wish.js"></script>
     <script src="../js/graph.js"></script>
     <script src="../js/localization.js"></script>

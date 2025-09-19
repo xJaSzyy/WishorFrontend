@@ -182,6 +182,29 @@ async function getCountsByStatus() {
     return data.content;
 }
 
+async function getCountsByDate() {
+    const url = new URL(wishBaseUrl + '/countsByDate');
+    const token = localStorage.getItem('token');
+
+    const response = await fetch(url.toString(), {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    });
+
+    if (response.status === 401) {
+        window.location.href = 'auth.html';
+        return null;
+    }
+
+    if (!response.ok) {
+        throw new Error('Ошибка загрузки данных');
+    }
+
+    const data = await response.json();
+    return data.content;
+}
+
 async function updateCountsByStatus() {
     try {
         const data = await getCountsByStatus();
