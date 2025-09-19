@@ -34,4 +34,23 @@ async function renderStatusDistributionChart() {
     });
 }
 
+const ctx = document.getElementById('wish-count-dynamics-chart').getContext('2d');
+const chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Январь', 'Февраль', 'Март', 'Апрель'], // подписи под столбцами
+        datasets: [{
+            label: 'Количество желаний',
+            data: [10, 15, 7, 20],
+            backgroundColor: 'lightblue'
+        }]
+    },
+    options: {
+        scales: {
+            y: { beginAtZero: true }
+        }
+    }
+});
+
+
 renderStatusDistributionChart();
